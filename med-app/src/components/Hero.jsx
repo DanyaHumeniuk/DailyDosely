@@ -17,6 +17,15 @@ const Hero = () => {
   const minuteDegrees = minutes * 6;
   const secondDegrees = seconds * 6;
 
+  const [medicationName, setMedicationName] = useState("");
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Handle uploaded image logic here
+      console.log("Image uploaded:", file.name);
+    }
+  };
+
   return (
     <div className="h-screen w-screen flex flex-col bg-[#e0e5ec] justify-center items-center gap-4 px-4">
       <div className="flex flex-col gap-6 w-full h-full items-center justify-center mx-auto">
@@ -64,8 +73,14 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex w-full max-w-2xl h-full max-h-16 lg:max-w-4xl sm:max-w-lg bg-[#e0e5ec] rounded-[50px] mx-auto shadow-neu">
-          <p className="text-black"></p>
+        <div className="flex flex-row justify-around items-center w-full max-w-2xl h-full max-h-16 lg:max-w-4xl sm:max-w-lg bg-[#e0e5ec] rounded-[50px] mx-auto shadow-neu gap-12 px-4">
+          <label className="cursor-pointer flex items-center justify-center bg-[#e0e5ec] rounded-full w-1/2 max-w-lg h-10 shadow-[inset_10px_10px_20px_#a3b1c6,inset_-10px_-10px_20px_#ffffff] text-gray-500 text-sm lg:text-lg">
+            <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
+            <span>Upload image</span>
+          </label>
+          <div className="flex justify-center items-center">
+            <input type="text" placeholder="Enter medication name" className="flex-grow bg-transparent outline-none placeholder-gray-500 text-sm lg:text-lg" />
+          </div>
         </div>
 
       </div>

@@ -22,7 +22,21 @@ const Hero = () => {
       <div className="flex flex-col gap-6 w-full h-full items-center justify-center mx-auto">
 
         <div className="flex flex-col w-full max-w-2xl aspect-video sm:max-w-lg lg:max-w-4xl bg-[#e0e5ec] rounded-[50px] shadow-neu gap-4 justify-center items-center p-4">
-          <div className="flex w-full bg-[#e0e5ec] rounded-[50px] shadow-neu h-1/2 max-h-[120px] lg:max-h-[550px]"></div>
+          <div className="flex flex-col w-full bg-[#e0e5ec] rounded-[50px] shadow-neu h-1/2 max-h-[120px] lg:max-h-[550px] p-4">
+            <div className="w-full h-1/2 flex flex-col justify-center items-start text-blue-950">
+              <p className="text-xl lg:text-3xl font-semibold">
+                {new Date().toLocaleDateString('en-US', {
+                  month: 'numeric',
+                  day: '2-digit',
+                })}
+              </p>
+            </div>
+            <div className="w-full h-1/2 bg-gray-300 rounded-[50px] flex flex-row justify-between items-center px-4 lg:px-8 text-blue-950">
+              <span className="text-sm lg:text-lg">Next Medication</span>
+              <span className="text-xl lg:text-2xl font-semibold">Ibuprofen</span>
+              <span className="text-sm lg:text-lg text-gray-700">At: 6 PM</span>
+            </div>
+          </div>
           <div className="flex flex-row w-full rounded-[50px] gap-2 lg:gap-4 h-1/2 justify-center items-center">
             <div className="flex relative items-center justify-center rounded-full bg-[#e0e5ec] w-1/2 max-w-[120px] lg:max-w-[230px] aspect-square shadow-[inset_10px_10px_20px_#a3b1c6,inset_-10px_-10px_20px_#ffffff]">
               {/* Hour Hand */}
@@ -44,7 +58,7 @@ const Hero = () => {
               ></div>
 
               {/* Center Dot */}
-              <div className="absolute w-2 h-2 lg:w-3 lg:h-3 border border-black bg-white rounded-full z-10"></div>
+              <div className="absolute w-1 h-1 lg:w-2 lg:h-2 border border-black bg-white rounded-full z-10"></div>
             </div>
             <div className="flex bg-[#e0e5ec] border border-black rounded-[50px] w-full h-full max-h-[120px] lg:max-h-[550px]"></div>
           </div>

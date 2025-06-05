@@ -3,6 +3,10 @@ import React, { useEffect, useState } from 'react';
 const Hero = () => {
 
   const [time, setTime] = useState(new Date());
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [medicationEntry, setMedicationEntry] = useState({ name: "", image: null });
+
+
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
@@ -21,10 +25,11 @@ const Hero = () => {
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Handle uploaded image logic here
-      console.log("Image uploaded:", file.name);
+      const imageURL = URL.createObjectURL(file);
+      setMedicationEntry((prev) => ({ ...prev, image: imageURL }));
     }
   };
+
 
   return (
     <div className="h-screen w-screen flex flex-col bg-[#e0e5ec] justify-center items-center gap-4 px-4">
@@ -69,7 +74,17 @@ const Hero = () => {
               {/* Center Dot */}
               <div className="absolute w-1 h-1 lg:w-2 lg:h-2 border border-black bg-white rounded-full z-10"></div>
             </div>
-            <div className="flex bg-[#e0e5ec] border border-black rounded-[50px] w-full h-full max-h-[120px] lg:max-h-[550px]"></div>
+            <div className="flex bg-[#e0e5ec] border border-black rounded-[50px] w-full h-full max-h-[120px] lg:max-h-[550px] items-center px-4 gap-4">
+              {medicationEntry.image && (
+                <img src={medicationEntry.image} alt="Medication" className="w-16 h-16 lg:w-24 lg:h-24 object-cover rounded-[20px]" />
+              )}
+
+              {medicationEntry.name && (
+                <p className="text-sm lg:text-xl font-semibold text-blue-950">
+                  {medicationEntry.name}
+                </p>
+              )}
+            </div>
           </div>
         </div>
 
@@ -79,7 +94,17 @@ const Hero = () => {
             <span>Upload image</span>
           </label>
           <div className="flex justify-center items-center">
-            <input type="text" placeholder="Enter medication name" className="flex-grow bg-transparent outline-none placeholder-gray-500 text-sm lg:text-lg" />
+            <input 
+              type="text" 
+              placeholder="Enter medication name" 
+              className="flex-grow bg-transparent outline-none placeholder-gray-500 text-sm lg:text-lg" 
+              value={medicationName} onChange={(e) => setMedicationName(e.target.value)} 
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && medicationName.trim() !=="") {
+                  e.preventDefault()
+                  setMedicationEntry((prev) => ({ ...prev, name: medicationName }))
+                  setMedicationName("")
+              }}} />
           </div>
         </div>
 

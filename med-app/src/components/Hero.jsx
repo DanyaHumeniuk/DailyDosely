@@ -76,7 +76,7 @@ const Hero = () => {
             </div>
             <div className="flex bg-[#e0e5ec] border border-black rounded-[50px] w-full h-full max-h-[120px] lg:max-h-[550px] items-center px-4 gap-4">
               {medicationEntry.image && (
-                <img src={medicationEntry.image} alt="Medication" className="w-16 h-16 lg:w-24 lg:h-24 object-cover rounded-[20px]" />
+                <img src={medicationEntry.image} alt="Medication" className="w-16 h-16 lg:w-40 lg:h-40 object-cover rounded-[20px]" />
               )}
 
               {medicationEntry.name && (

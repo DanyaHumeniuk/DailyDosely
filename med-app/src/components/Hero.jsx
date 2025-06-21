@@ -5,6 +5,8 @@ const Hero = () => {
   const [time, setTime] = useState(new Date());
   const [selectedImage, setSelectedImage] = useState(null);
   const [medicationEntry, setMedicationEntry] = useState({ name: "", image: null });
+  const [timeInput, setTimeInput] = useState("");
+  const [medications, setMedications] = useState([]);
 
 
 
@@ -88,8 +90,8 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-row justify-around items-center w-full max-w-2xl h-full max-h-16 lg:max-w-4xl sm:max-w-lg bg-[#e0e5ec] rounded-[50px] mx-auto shadow-neu gap-12 px-4">
-          <label className="cursor-pointer flex items-center justify-center bg-[#e0e5ec] rounded-full w-1/2 max-w-lg h-10 shadow-[inset_10px_10px_20px_#a3b1c6,inset_-10px_-10px_20px_#ffffff] text-gray-500 text-sm lg:text-lg">
+        <div className="flex flex-row justify-around items-center w-full max-w-2xl h-full max-h-16 lg:max-w-4xl sm:max-w-lg bg-[#e0e5ec] rounded-[50px] mx-auto shadow-neu gap-2 px-4">
+          <label className="cursor-pointer flex items-center justify-center bg-[#e0e5ec] rounded-full w-[1500px] lg:w-[200px] max-w-lg h-10 shadow-[inset_10px_10px_20px_#a3b1c6,inset_-10px_-10px_20px_#ffffff] text-gray-500 text-sm lg:text-lg">
             <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
             <span>Upload image</span>
           </label>
@@ -97,7 +99,7 @@ const Hero = () => {
             <input 
               type="text" 
               placeholder="Enter medication name" 
-              className="flex-grow bg-transparent outline-none placeholder-gray-500 text-sm lg:text-lg" 
+              className="flex flex-wrap w-[150px] lg:w-[200px] max-w-lg bg-transparent outline-none placeholder-gray-500 text-sm lg:text-lg " 
               value={medicationName} onChange={(e) => setMedicationName(e.target.value)} 
               onKeyDown={(e) => {
                 if (e.key === "Enter" && medicationName.trim() !=="") {
@@ -106,6 +108,25 @@ const Hero = () => {
                   setMedicationName("")
               }}} />
           </div>
+          <div>
+            <input 
+              type="time"
+              value={timeInput}
+              onChange={(e) => setTimeInput(e.target.value)}
+              className="bg-transparent outline-none text-sm lg:text-lg"
+            />
+          </div>
+          
+
+          <button
+            onClick={() => {
+              console.log("Medications added:", medications);
+              // Here could save to localStorage or backend
+            }}
+            className="bg-blue-950 text-white rounded-full px-4 py-1 text-sm hover:bg-green-900"
+          >
+            Done
+          </button>
         </div>
 
       </div>

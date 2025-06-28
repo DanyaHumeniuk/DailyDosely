@@ -55,25 +55,25 @@ const Hero = () => {
           </div>
           <div className="flex flex-row w-full rounded-[50px] gap-2 lg:gap-4 h-1/2 justify-center items-center">
             <div className="flex relative items-center justify-center rounded-full bg-[#e0e5ec] w-1/2 max-w-[120px] lg:max-w-[230px] aspect-square shadow-[inset_10px_10px_20px_#a3b1c6,inset_-10px_-10px_20px_#ffffff]">
-              {/* Hour Hand */}
+              
               <div
                 className="absolute bottom-1/2 left-1/2 w-[3px] h-[30%] bg-black origin-bottom rounded-lg"
                 style={{ transform: `translateX(-50%) rotate(${hourDegrees}deg)` }}
               ></div>
 
-              {/* Minute Hand */}
+              
               <div
                 className="absolute bottom-1/2 left-1/2 w-[2px] h-[40%] bg-black origin-bottom rounded-lg"
                 style={{ transform: `translateX(-50%) rotate(${minuteDegrees}deg)` }}
               ></div>
 
-              {/* Second Hand */}
+              
               <div
                 className="absolute bottom-1/2 left-1/2 w-[1px] h-[40%] bg-black origin-bottom rounded-lg"
                 style={{ transform: `translateX(-50%) rotate(${secondDegrees}deg)` }}
               ></div>
 
-              {/* Center Dot */}
+              
               <div className="absolute w-1 h-1 lg:w-2 lg:h-2 border border-black bg-white rounded-full z-10"></div>
             </div>
             <div className="flex bg-[#e0e5ec] border border-black rounded-[50px] w-full h-full max-h-[120px] lg:max-h-[550px] items-center px-4 gap-4">
@@ -127,6 +127,11 @@ const Hero = () => {
           >
             Done
           </button>
+        </div>
+
+        {/* Box for storing already added medicatioms */} 
+        <div className="flex flex-row justify-around items-center w-full max-w-2xl h-full max-h-16 lg:max-w-4xl sm:max-w-lg bg-[#e0e5ec] rounded-[50px] mx-auto shadow-neu gap-2 px-4">
+
         </div>
 
       </div>
